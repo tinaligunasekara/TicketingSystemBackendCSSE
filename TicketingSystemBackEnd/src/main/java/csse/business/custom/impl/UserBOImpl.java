@@ -1,4 +1,4 @@
-package csse.business.custom.impl;
+package csse.business.custom.Impl;
 
 import csse.business.custom.UserBO;
 import csse.repository.UserRepository;
