@@ -1,0 +1,6 @@
+projectKey=csseTicketingSystem
+serverUrl=http://localhost:9000
+serverVersion=7.5.0.20543
+dashboardUrl=http://localhost:9000/dashboard?id=csseTicketingSystem
+ceTaskId=AXUBnIvTthDfDDZ7f7id
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXUBnIvTthDfDDZ7f7id
