@@ -1,4 +1,4 @@
-package csse.business.custom.Impl;
+package csse.business.custom.impl;
 
 import csse.business.custom.LocalUserBO;
 import csse.entity.User;

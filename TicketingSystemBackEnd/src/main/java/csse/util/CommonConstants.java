@@ -22,6 +22,7 @@ public class CommonConstants {
 	public final static String ROUTE_ALL = "/fetch/all";
 	public final static String ROUTE_COUNT = "/fetchcount";
 	public final static String ROUTE_SINGLE = "/fetch/{id}";
+	public final static String ROUTE_USER_LOGIN = "/login/{id}/{password}";
 	public final static String ROUTE_PAGINATION_ADMIN = "/fetch/{name}/{email}/{nic}/{address}/{page}/{limit}";
 	public final static String ROUTE_PAGINATION_STUDENT = "/fetch/{name}/{email}/{nic}/{address}/{type}/{status}/{page}/{limit}";
 	public final static String ROUTE_PAGINATION_TUTOR = "/fetch/{name}/{email}/{nic}/{address}/{page}/{limit}";

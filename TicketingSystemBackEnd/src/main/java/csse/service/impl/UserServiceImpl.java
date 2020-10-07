@@ -13,4 +13,9 @@ public class UserServiceImpl implements UserService {
         userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BoTypes.USER);
 
     }
+
+    @Override
+    public boolean userLogin(String id, String password) {
+        return userBO.userLogin(id,password);
+    }
 }

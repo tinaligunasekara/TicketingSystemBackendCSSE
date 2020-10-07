@@ -5,14 +5,11 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 import java.util.Set;
 
 @Entity
-public class Inspecter extends SuperEntity{
+public class Inspecter extends DateTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int inspecterId;
@@ -28,16 +25,7 @@ public class Inspecter extends SuperEntity{
     @JsonIgnore
     private Set<InspecterLocalUserDetails> inspecterLocalUserDetails;
 
-    private String curDate;
-    private String curTime;
-    public Inspecter() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        Date date = new Date();
-        this.curTime = dtf.format(now);
-        this.curDate = formatter.format(date);
-    }
+
 
     public int getInspecterId() {
         return inspecterId;
@@ -53,22 +41,6 @@ public class Inspecter extends SuperEntity{
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getCurDate() {
-        return curDate;
-    }
-
-    public void setCurDate(String curDate) {
-        this.curDate = curDate;
-    }
-
-    public String getCurTime() {
-        return curTime;
-    }
-
-    public void setCurTime(String curTime) {
-        this.curTime = curTime;
     }
 
 

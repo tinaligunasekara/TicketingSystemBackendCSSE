@@ -1,12 +1,9 @@
 package csse.controller;
 
-
 import csse.service.UserService;
 import csse.util.CommonConstants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
@@ -16,7 +13,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    public UserController(){
-
+    @GetMapping(value = CommonConstants.ROUTE_ALL)
+    public boolean userLogin(@PathVariable String id, @PathVariable String password) {
+        return userService.userLogin(id, password);
     }
 }

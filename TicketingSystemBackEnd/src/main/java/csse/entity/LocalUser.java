@@ -5,22 +5,16 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
-public class LocalUser extends SuperEntity{
+public class LocalUser extends DateTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int localUserId;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JsonIgnore
     private User user;
-    private String curDate;
-    private String curTime;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "localUser")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
@@ -30,14 +24,7 @@ public class LocalUser extends SuperEntity{
     @JsonIgnore
     private Set<InspecterLocalUserDetails> inspecterLocalUserDetails;
 
-    public LocalUser() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        Date date = new Date();
-        this.curTime = dtf.format(now);
-        this.curDate = formatter.format(date);
-    }
+
 
     public int getLocalUserId() {
         return localUserId;
@@ -55,21 +42,7 @@ public class LocalUser extends SuperEntity{
         this.user = user;
     }
 
-    public String getCurDate() {
-        return curDate;
-    }
 
-    public void setCurDate(String curDate) {
-        this.curDate = curDate;
-    }
-
-    public String getCurTime() {
-        return curTime;
-    }
-
-    public void setCurTime(String curTime) {
-        this.curTime = curTime;
-    }
 
     public Set<Payment> getPayment() {
         return payment;

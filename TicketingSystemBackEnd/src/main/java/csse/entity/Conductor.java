@@ -3,13 +3,10 @@ package csse.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 @Entity
-public class Conductor extends SuperEntity{
+public class Conductor extends DateTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int conductorId;
@@ -20,18 +17,7 @@ public class Conductor extends SuperEntity{
             cascade = CascadeType.ALL)
     @JsonIgnore
     private Bus bus ;
-    private String curDate;
-    private String curTime;
 
-
-    public Conductor() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        Date date = new Date();
-        this.curTime = dtf.format(now);
-        this.curDate = formatter.format(date);
-    }
 
     public int getConductorId() {
         return conductorId;
@@ -49,21 +35,6 @@ public class Conductor extends SuperEntity{
         this.user = user;
     }
 
-    public String getCurDate() {
-        return curDate;
-    }
-
-    public void setCurDate(String curDate) {
-        this.curDate = curDate;
-    }
-
-    public String getCurTime() {
-        return curTime;
-    }
-
-    public void setCurTime(String curTime) {
-        this.curTime = curTime;
-    }
 
     public Bus getBus() {
         return bus;

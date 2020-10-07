@@ -1,17 +1,11 @@
 package csse.entity;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Set;
+
 
 @Entity
-public class User extends SuperEntity{
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
@@ -21,6 +15,8 @@ public class User extends SuperEntity{
     private String role;
     private String nic;
     private String address;
+    private double accountBalance;
+    private String userName;
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Foreigner foreigner ;
@@ -36,16 +32,22 @@ public class User extends SuperEntity{
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Conductor conductor ;
-    private String curDate;
-    private String curTime;
 
-    public User() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        Date date = new Date();
-        this.curTime = dtf.format(now);
-        this.curDate = formatter.format(date);
+
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public void setAccountBalance(double accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getUserId() {
@@ -146,19 +148,5 @@ public class User extends SuperEntity{
         this.conductor = conductor;
     }
 
-    public String getCurDate() {
-        return curDate;
-    }
 
-    public void setCurDate(String curDate) {
-        this.curDate = curDate;
-    }
-
-    public String getCurTime() {
-        return curTime;
-    }
-
-    public void setCurTime(String curTime) {
-        this.curTime = curTime;
-    }
 }

@@ -1,12 +1,8 @@
 package csse.entity;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 @Entity
-public class InspecterLocalUserDetails extends SuperEntity{
+public class InspecterLocalUserDetails extends DateTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int busTransportManagerDetailId;
@@ -14,17 +10,7 @@ public class InspecterLocalUserDetails extends SuperEntity{
     private LocalUser localUser;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Inspecter inspecter;
-    private String curDate;
-    private String curTime;
 
-    public InspecterLocalUserDetails() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        Date date = new Date();
-        curTime = dtf.format(now);
-        curDate = formatter.format(date);
-    }
 
     public int getBusTransportManagerDetailId() {
         return busTransportManagerDetailId;
@@ -50,19 +36,5 @@ public class InspecterLocalUserDetails extends SuperEntity{
         this.inspecter = inspecter;
     }
 
-    public String getCurDate() {
-        return curDate;
-    }
 
-    public void setCurDate(String curDate) {
-        this.curDate = curDate;
-    }
-
-    public String getCurTime() {
-        return curTime;
-    }
-
-    public void setCurTime(String curTime) {
-        this.curTime = curTime;
-    }
 }

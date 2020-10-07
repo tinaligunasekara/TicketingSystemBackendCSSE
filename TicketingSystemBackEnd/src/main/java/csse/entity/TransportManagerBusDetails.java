@@ -1,13 +1,10 @@
 package csse.entity;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 @Entity
-public class TransportManagerBusDetails extends SuperEntity{
+public class TransportManagerBusDetails extends DateTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int transportMangerBusDetailId;
@@ -15,17 +12,7 @@ public class TransportManagerBusDetails extends SuperEntity{
     private TransportManager transportManger;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Bus bus;
-    private String curDate;
-    private String curTime;
 
-    public TransportManagerBusDetails() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        Date date = new Date();
-        curTime = dtf.format(now);
-        curDate = formatter.format(date);
-    }
 
     public int getTransportMangerBusDetailId() {
         return transportMangerBusDetailId;
@@ -51,19 +38,5 @@ public class TransportManagerBusDetails extends SuperEntity{
         this.bus = bus;
     }
 
-    public String getCurDate() {
-        return curDate;
-    }
 
-    public void setCurDate(String curDate) {
-        this.curDate = curDate;
-    }
-
-    public String getCurTime() {
-        return curTime;
-    }
-
-    public void setCurTime(String curTime) {
-        this.curTime = curTime;
-    }
 }

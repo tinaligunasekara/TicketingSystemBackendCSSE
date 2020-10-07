@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class BOFactory {
 
-    public static BOFactory boFactory;
+    private static BOFactory boFactory;
 
     @Autowired
     private LocalUserBO localUserBO;
@@ -15,7 +15,9 @@ public class BOFactory {
         USER,LOCAL_USER_BO
     }
 
-    public BOFactory() {
+
+    private BOFactory() {
+        //  we use this constructor to  create objects.
     }
 
     public static BOFactory getInstance() {
