@@ -1,4 +1,4 @@
-package csse.business.custom.Impl;
+package csse.business.custom.impl;
 
 import csse.business.custom.UserBO;
 import csse.repository.UserRepository;
@@ -12,11 +12,30 @@ public class UserBOImpl implements UserBO {
     private UserRepository userRepository;
 
     @Override
-    public boolean userLogin(String id, String password) {
+    public String userLogin(String id, String password) {
         String userId = userRepository.userLogin(id, password);
-        boolean result = true;
+        String result = userId;
         if (userId == null) {
-            result = false;
+            result = null;
+        }
+        return result;
+    }
+
+    @Override
+    public double checkBalance(String id) {
+        String value = userRepository.checkBalance(id);
+        double result =0;
+        if(value!=null)
+            result =Double.parseDouble(value.trim());
+        return result;
+    }
+
+    @Override
+    public boolean checkUserNameIsExists(String userName) {
+        String user = userRepository.checkUserNameIsExists(userName);
+        boolean result = false;
+        if(user!=null){
+            result = true;
         }
         return result;
     }

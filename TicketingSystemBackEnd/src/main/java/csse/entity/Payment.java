@@ -16,7 +16,6 @@ public class Payment {
     private String status;
     private double amount;
     private String method;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "payment")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<TransportManagerPaymentDetails> transportManagerPaymentDetails;

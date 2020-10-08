@@ -11,7 +11,7 @@ public class CommonConstants {
 	public final static String ROUTE_TUTOR_MAIN = "/api/tutor";
 	public final static String ROUTE_USER_MAIN = "/api/user";
 	public final static String ROUTE_LOCAL_USER_MAIN = "/api/localuser";
-	public final static String ROUTE_INSTITUTE_MAIN = "/api/institute";
+	public final static String ROUTE_FOREIGN_USER_MAIN = "/api/foreignuser";
 	public final static String ROUTE_COURSE_MAIN = "/api/course";
 	public final static String ROUTE_AUTH_MAIN = "/api/auth";
 	public final static String ROUTE_VIDEO_MAIN = "/api/video";
@@ -23,6 +23,8 @@ public class CommonConstants {
 	public final static String ROUTE_COUNT = "/fetchcount";
 	public final static String ROUTE_SINGLE = "/fetch/{id}";
 	public final static String ROUTE_USER_LOGIN = "/login/{id}/{password}";
+	public final static String ROUTE_CHECK_BALANCE = "/checkbalance/{id}";
+	public final static String ROUTE_CHECK_USERNAME_IS_EXISTS = "/checkusernameisexists/{username}";
 	public final static String ROUTE_PAGINATION_ADMIN = "/fetch/{name}/{email}/{nic}/{address}/{page}/{limit}";
 	public final static String ROUTE_PAGINATION_STUDENT = "/fetch/{name}/{email}/{nic}/{address}/{type}/{status}/{page}/{limit}";
 	public final static String ROUTE_PAGINATION_TUTOR = "/fetch/{name}/{email}/{nic}/{address}/{page}/{limit}";

@@ -1,7 +1,9 @@
 package csse.business;
 
 
+import csse.business.custom.ForeignUserBO;
 import csse.business.custom.LocalUserBO;
+import csse.business.custom.UserBO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BOFactory {
@@ -10,14 +12,18 @@ public class BOFactory {
 
     @Autowired
     private LocalUserBO localUserBO;
+    @Autowired
+    private UserBO userBO;
+    @Autowired
+    private ForeignUserBO foreignUserBO;
 
     public enum BoTypes {
-        USER,LOCAL_USER_BO
+        USER,LOCAL_USER_BO,FOREIGN_USER_BO
     }
 
 
     private BOFactory() {
-        //  we use this constructor to  create objects.
+        //  we use this constructor to  create Factory objects.
     }
 
     public static BOFactory getInstance() {
@@ -30,9 +36,11 @@ public class BOFactory {
     public SuperBO getBO(BoTypes type) {
         switch (type) {
             case USER:
-                return null;
+                return userBO;
             case LOCAL_USER_BO:
                 return localUserBO;
+            case FOREIGN_USER_BO:
+                return foreignUserBO;
             default:
                 return null;
         }

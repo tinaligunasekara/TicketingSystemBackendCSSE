@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 @Entity
-public class User {
+public class User extends DateTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
@@ -17,6 +17,7 @@ public class User {
     private String address;
     private double accountBalance;
     private String userName;
+    private String tokenNumber;
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Foreigner foreigner ;
@@ -31,7 +32,8 @@ public class User {
     private TransportManager transportManager ;
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Conductor conductor ;
+    private Conductor conductor;
+
 
 
     public double getAccountBalance() {
@@ -111,6 +113,7 @@ public class User {
     }
 
     public void setForeigner(Foreigner foreigner) {
+        foreigner.setUser(this);
         this.foreigner = foreigner;
     }
 
@@ -148,5 +151,11 @@ public class User {
         this.conductor = conductor;
     }
 
+    public String getTokenNumber() {
+        return tokenNumber;
+    }
 
+    public void setTokenNumber(String tokenNumber) {
+        this.tokenNumber = tokenNumber;
+    }
 }

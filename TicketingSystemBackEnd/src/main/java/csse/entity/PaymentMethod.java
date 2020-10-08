@@ -1,13 +1,12 @@
 package csse.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 
 @Entity
-public class PaymentMethod extends DateTime{
+public class PaymentMethod extends DateTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int paymentMethodId;
@@ -15,8 +14,9 @@ public class PaymentMethod extends DateTime{
     private String cardNumber;
     private String expiredDate;
     private String cvcNumber;
-
-
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
+    private LocalUser localUser;
 
 
     public int getPaymentMethodId() {
@@ -59,5 +59,11 @@ public class PaymentMethod extends DateTime{
         this.cvcNumber = cvcNumber;
     }
 
+    public LocalUser getLocalUser() {
+        return localUser;
+    }
 
+    public void setLocalUser(LocalUser localUser) {
+        this.localUser = localUser;
+    }
 }

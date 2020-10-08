@@ -4,5 +4,9 @@ import csse.business.SuperBO;
 
 public interface UserBO extends SuperBO {
 
-    boolean userLogin(String id, String password);
+    String userLogin(String id, String password);
+
+    double checkBalance(String id);
+
+    boolean checkUserNameIsExists(String userName);
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class LocalUser extends DateTime{
+public class LocalUser extends DateTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int localUserId;
@@ -23,7 +23,9 @@ public class LocalUser extends DateTime{
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Set<InspecterLocalUserDetails> inspecterLocalUserDetails;
-
+    @OneToOne(mappedBy = "localUser", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private PaymentMethod paymentMethod;
 
 
     public int getLocalUserId() {
@@ -42,8 +44,6 @@ public class LocalUser extends DateTime{
         this.user = user;
     }
 
-
-
     public Set<Payment> getPayment() {
         return payment;
     }
@@ -59,4 +59,15 @@ public class LocalUser extends DateTime{
     public void setInspecterLocalUserDetails(Set<InspecterLocalUserDetails> inspecterLocalUserDetails) {
         this.inspecterLocalUserDetails = inspecterLocalUserDetails;
     }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        paymentMethod.setLocalUser(this);
+        this.paymentMethod = paymentMethod;
+    }
+
+
 }

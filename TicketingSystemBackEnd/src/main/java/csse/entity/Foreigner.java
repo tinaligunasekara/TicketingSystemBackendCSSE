@@ -13,6 +13,7 @@ public class Foreigner extends DateTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int foreignerId;
+    private String passportNumber;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JsonIgnore
     private User user;
@@ -39,7 +40,6 @@ public class Foreigner extends DateTime{
     }
 
 
-
     public Set<ForeignerInspecterDetails> getForeignerInspecterDetails() {
         return foreignerInspecterDetails;
     }
@@ -47,4 +47,13 @@ public class Foreigner extends DateTime{
     public void setForeignerInspecterDetails(Set<ForeignerInspecterDetails> foreignerInspecterDetails) {
         this.foreignerInspecterDetails = foreignerInspecterDetails;
     }
+
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
+    }
+
 }
