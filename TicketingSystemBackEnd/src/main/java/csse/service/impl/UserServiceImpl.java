@@ -2,6 +2,7 @@ package csse.service.impl;
 
 import csse.business.BOFactory;
 import csse.business.custom.UserBO;
+import csse.entity.User;
 import csse.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String userLogin(String id, String password) {
+    public User userLogin(String id, String password) {
         return userBO.userLogin(id,password);
     }
 

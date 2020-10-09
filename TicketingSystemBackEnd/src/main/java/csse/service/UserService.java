@@ -1,9 +1,11 @@
 package csse.service;
 
 
+import csse.entity.User;
+
 public interface UserService {
 
-    String userLogin(String id, String password);
+    User userLogin(String id, String password);
 
     double checkBalance(String id);
 

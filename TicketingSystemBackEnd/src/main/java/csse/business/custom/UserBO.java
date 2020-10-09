@@ -1,10 +1,11 @@
 package csse.business.custom;
 
 import csse.business.SuperBO;
+import csse.entity.User;
 
 public interface UserBO extends SuperBO {
 
-    String userLogin(String id, String password);
+    User userLogin(String id, String password);
 
     double checkBalance(String id);
 

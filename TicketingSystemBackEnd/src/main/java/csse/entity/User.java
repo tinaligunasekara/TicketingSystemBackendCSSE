@@ -12,6 +12,7 @@ public class User extends DateTime{
     private String name;
     private String password;
     private String email;
+    private String mobile;
     private String role;
     private String nic;
     private String address;
@@ -35,6 +36,13 @@ public class User extends DateTime{
     private Conductor conductor;
 
 
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
     public double getAccountBalance() {
         return accountBalance;

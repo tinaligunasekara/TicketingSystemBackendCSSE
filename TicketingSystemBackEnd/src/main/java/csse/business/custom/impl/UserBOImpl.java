@@ -1,6 +1,7 @@
 package csse.business.custom.impl;
 
 import csse.business.custom.UserBO;
+import csse.entity.User;
 import csse.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,9 +13,9 @@ public class UserBOImpl implements UserBO {
     private UserRepository userRepository;
 
     @Override
-    public String userLogin(String id, String password) {
-        String userId = userRepository.userLogin(id, password);
-        String result = userId;
+    public User userLogin(String id, String password) {
+        User userId = userRepository.userLogin(id, password);
+        User result = userId;
         if (userId == null) {
             result = null;
         }
@@ -32,11 +33,15 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean checkUserNameIsExists(String userName) {
+
         String user = userRepository.checkUserNameIsExists(userName);
         boolean result = false;
         if(user!=null){
             result = true;
         }
+        System.out.println("LLLLLLLLLLL");
         return result;
     }
+
+
 }

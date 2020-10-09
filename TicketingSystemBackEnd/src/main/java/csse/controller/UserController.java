@@ -1,5 +1,6 @@
 package csse.controller;
 
+import csse.entity.User;
 import csse.service.UserService;
 import csse.util.CommonConstants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping(value = CommonConstants.ROUTE_USER_LOGIN)
-    public String userLogin(@PathVariable String id, @PathVariable String password) {
+    public User userLogin(@PathVariable String id, @PathVariable String password) {
         return userService.userLogin(id, password);
     }
 
@@ -24,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping(value = CommonConstants.ROUTE_CHECK_USERNAME_IS_EXISTS)
-    public boolean checkUserNameIsExists(@PathVariable String userName) {
-        return userService.checkUserNameIsExists(userName);
+    public boolean checkUserNameIsExists(@PathVariable String username) {
+        return userService.checkUserNameIsExists(username);
     }
 }
