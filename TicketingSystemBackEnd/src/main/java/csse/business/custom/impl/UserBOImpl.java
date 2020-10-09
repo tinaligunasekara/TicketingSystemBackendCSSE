@@ -39,7 +39,6 @@ public class UserBOImpl implements UserBO {
         if(user!=null){
             result = true;
         }
-        System.out.println("LLLLLLLLLLL");
         return result;
     }
 
