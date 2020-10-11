@@ -33,7 +33,6 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean checkUserNameIsExists(String userName) {
-
         String user = userRepository.checkUserNameIsExists(userName);
         boolean result = false;
         if(user!=null){

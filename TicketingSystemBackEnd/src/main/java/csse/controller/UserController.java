@@ -16,6 +16,7 @@ public class UserController {
 
     @GetMapping(value = CommonConstants.ROUTE_USER_LOGIN)
     public User userLogin(@PathVariable String id, @PathVariable String password) {
+        System.out.println("KKKKKKKKKKK");
         return userService.userLogin(id, password);
     }
 
