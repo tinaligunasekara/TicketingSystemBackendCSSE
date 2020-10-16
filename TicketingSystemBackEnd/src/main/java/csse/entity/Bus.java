@@ -13,7 +13,10 @@ public class Bus extends DateTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int busId;
+    private String busNumber;
+    private String password;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
     private Conductor conductor;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bus")
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -42,5 +45,21 @@ public class Bus extends DateTime{
 
     public void setTransportManagerBusDetails(Set<TransportManagerBusDetails> transportManagerBusDetails) {
         this.transportManagerBusDetails = transportManagerBusDetails;
+    }
+
+    public String getBusNumber() {
+        return busNumber;
+    }
+
+    public void setBusNumber(String busNumber) {
+        this.busNumber = busNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

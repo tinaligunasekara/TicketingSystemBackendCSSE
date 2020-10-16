@@ -9,10 +9,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(" from User where userName =?1 and password=?2")
     User userLogin(String id, String password);
 
-    @Query("select accountBalance from User where nic =?1")
+    @Query("select accountBalance from User where tokenNumber =?1")
     String checkBalance(String id);
 
     @Query("select nic from User where userName =?1")
     String checkUserNameIsExists(String userName);
 
+    @Query(" from User where tokenNumber =?1 ")
+    User getUserByTokenNumber(String tokenNumber);
 }

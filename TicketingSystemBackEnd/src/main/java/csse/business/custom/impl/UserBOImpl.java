@@ -15,10 +15,12 @@ public class UserBOImpl implements UserBO {
     @Override
     public User userLogin(String id, String password) {
         User userId = userRepository.userLogin(id, password);
+        System.out.println(userId);
         User result = userId;
         if (userId == null) {
             result = null;
         }
+        System.out.println(result);
         return result;
     }
 

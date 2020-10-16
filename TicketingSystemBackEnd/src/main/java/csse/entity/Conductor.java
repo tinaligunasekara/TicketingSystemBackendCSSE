@@ -15,7 +15,6 @@ public class Conductor extends DateTime{
     private User user;
     @OneToOne(mappedBy = "conductor", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    @JsonIgnore
     private Bus bus ;
 
 

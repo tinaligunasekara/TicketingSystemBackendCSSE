@@ -3,6 +3,7 @@ package csse.business;
 
 import csse.business.custom.ForeignUserBO;
 import csse.business.custom.LocalUserBO;
+import csse.business.custom.RideBO;
 import csse.business.custom.UserBO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,9 +17,11 @@ public class BOFactory {
     private UserBO userBO;
     @Autowired
     private ForeignUserBO foreignUserBO;
+    @Autowired
+    private RideBO rideBO;
 
     public enum BoTypes {
-        USER,LOCAL_USER_BO,FOREIGN_USER_BO
+        USER,LOCAL_USER_BO,FOREIGN_USER_BO,RIDE_BO
     }
 
 
@@ -41,6 +44,8 @@ public class BOFactory {
                 return localUserBO;
             case FOREIGN_USER_BO:
                 return foreignUserBO;
+            case RIDE_BO:
+                return rideBO;
             default:
                 return null;
         }

@@ -1,11 +1,14 @@
 package csse.entity;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.MappedSuperclass;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+@Component
 @MappedSuperclass
 public class DateTime {
 
