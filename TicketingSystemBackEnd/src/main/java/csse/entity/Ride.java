@@ -20,6 +20,9 @@ public class Ride extends DateTime{
     private double payment;
     private double distance;
     private String status;
+    private String toLocation;
+    private String fromLocation;
+
 
     public int getRideId(){
         return rideId;
@@ -107,5 +110,21 @@ public class Ride extends DateTime{
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getToLocation() {
+        return toLocation;
+    }
+
+    public void setToLocation(String toLocation) {
+        this.toLocation = toLocation;
+    }
+
+    public String getFromLocation() {
+        return fromLocation;
+    }
+
+    public void setFromLocation(String fromLocation) {
+        this.fromLocation = fromLocation;
     }
 }

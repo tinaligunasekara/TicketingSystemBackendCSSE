@@ -26,4 +26,9 @@ public class RideServiceImpl implements RideService {
     public Ride updateRide(Ride ride) {
         return rideBO.updateRide(ride);
     }
+
+    @Override
+    public double getRideAmountBetweenTwoDistance(String fromLocation, String toLocation, String date) {
+        return rideBO.getRideAmountBetweenTwoDistance(fromLocation,toLocation,date);
+    }
 }

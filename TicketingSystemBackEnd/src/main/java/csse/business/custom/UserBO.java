@@ -10,4 +10,6 @@ public interface UserBO extends SuperBO {
     double checkBalance(String id);
 
     boolean checkUserNameIsExists(String userName);
+
+    User updatePayment(String amount, String tokenNumber);
 }

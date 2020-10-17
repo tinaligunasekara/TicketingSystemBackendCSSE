@@ -31,4 +31,9 @@ public class UserServiceImpl implements UserService {
     public boolean checkUserNameIsExists(String userName) {
         return userBO.checkUserNameIsExists(userName);
     }
+
+    @Override
+    public User updatePayment(String amount, String tokenNumber) {
+        return userBO.updatePayment(amount,tokenNumber);
+    }
 }

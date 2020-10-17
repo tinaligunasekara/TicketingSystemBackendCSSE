@@ -28,4 +28,10 @@ public class UserController {
     public boolean checkUserNameIsExists(@PathVariable String username) {
         return userService.checkUserNameIsExists(username);
     }
+
+    @GetMapping(value = CommonConstants.ROUTE_UPDATE_PAYMENT)
+    public User updatePayment(@PathVariable String amount,@PathVariable String tokenNumber) {
+        return userService.updatePayment(amount,tokenNumber);
+    }
+
 }

@@ -10,4 +10,6 @@ public interface UserService {
     double checkBalance(String id);
 
     boolean checkUserNameIsExists(String userName);
+
+    User updatePayment(String amount, String tokenNumber);
 }

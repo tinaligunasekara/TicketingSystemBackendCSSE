@@ -18,6 +18,7 @@ public class CommonConstants {
 	public final static String ROUTE_CHECK_BALANCE = "/checkbalance/{id}";
 	public final static String ROUTE_CHECK_USERNAME_IS_EXISTS = "/checkusernameisexists/{username}";
 	public final static String ROUTE_CREATE_RIDE = "/createride/{tokenNumber}/{busNumber}/{latitude}/{longitude}";
-	public final static String testRide = "/testRide/{id}";
+	public final static String ROUTE_RIDE_AMOUNT = "/rideamount/{fromLocation}/{toLocation}/{date}";
+	public final static String ROUTE_UPDATE_PAYMENT = "/updatePayment/{amount}/{tokenNumber}";
 
 }

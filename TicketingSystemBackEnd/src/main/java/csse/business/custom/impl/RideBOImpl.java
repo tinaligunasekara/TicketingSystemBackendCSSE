@@ -71,6 +71,17 @@ public class RideBOImpl implements RideBO {
         return result;
     }
 
+    @Override
+    public double getRideAmountBetweenTwoDistance(String fromLocation, String toLocation, String date) {
+        List<Object[]> amount = rideRepository.getRideAmountBetweenTwoDistance(fromLocation, toLocation,date);
+        double result =0;
+        for (Object o[]: amount
+        ) {
+            result = Double.parseDouble(o[0].toString());
+        }
+        return result;
+    }
+
 
     public Ride saveRide(Ride ride) {
         return rideRepository.save(ride);

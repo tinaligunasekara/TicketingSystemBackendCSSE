@@ -6,11 +6,14 @@ import csse.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.DecimalFormat;
+
 @Component
 public class UserBOImpl implements UserBO {
 
     @Autowired
     private UserRepository userRepository;
+    private static DecimalFormat df2 = new DecimalFormat("#.##");
 
     @Override
     public User userLogin(String id, String password) {
@@ -20,7 +23,6 @@ public class UserBOImpl implements UserBO {
         if (userId == null) {
             result = null;
         }
-        System.out.println(result);
         return result;
     }
 
@@ -30,7 +32,7 @@ public class UserBOImpl implements UserBO {
         double result =0;
         if(value!=null)
             result =Double.parseDouble(value.trim());
-        return result;
+        return Double.parseDouble(df2.format(result));
     }
 
     @Override
@@ -41,6 +43,14 @@ public class UserBOImpl implements UserBO {
             result = true;
         }
         return result;
+    }
+
+    @Override
+    public User updatePayment(String amount, String tokenNumber) {
+        User user = userRepository.getUserByTokenNumber(tokenNumber);
+        double newBalance = user.getAccountBalance()+Double.parseDouble(amount.trim());
+        user.setAccountBalance(newBalance);
+        return userRepository.save(user);
     }
 
 
